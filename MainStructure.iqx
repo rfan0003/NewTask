@@ -1,0 +1,332 @@
+﻿<defaults >
+/ screencolor = (127,127,127) 
+</defaults>
+
+
+<include>
+/ file = "PictureAndText.iqx"
+/ file = "8CR_4page.iqx"
+/ file = "8CR_disks.iqx"
+</include>
+
+<values>
+/ timeout_of_image_present = 133
+/ timeout_of_patch_present = 133
+/ location1_color = 0
+/ location2_color = 0
+/ location3_color = 0
+/ location4_color = 0
+/ location5_color = 0
+/ location6_color = 0
+/ location7_color = 0
+/ location8_color = 0
+/ location9_color = 0
+
+/ choose_color = 0
+/test = 2
+
+/ x_position = 0
+/ y_position = 0
+</values>
+
+<trial fixation_1>
+/ stimulusframes = [1 = cross]
+/ timeout = 500
+/ branch = [
+	trial.ImagePresent
+]
+</trial>
+
+<counter color_choose_1>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_2>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_3>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_4>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_5>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_6>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_7>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_8>
+/ select = noreplace(1-8)
+</counter>
+<counter color_choose_9>
+/ select = noreplace(1-8)
+</counter>
+
+<trial ImagePresent>
+/ ontrialbegin = [
+	picture.location1.insertitem(picture.resource.item(counter.color_choose_1.selectedvalue),1);
+	picture.location2.insertitem(picture.resource.item(counter.color_choose_2.selectedvalue),1);
+	picture.location3.insertitem(picture.resource.item(counter.color_choose_3.selectedvalue),1);
+	picture.location4.insertitem(picture.resource.item(counter.color_choose_4.selectedvalue),1);
+	picture.location5.insertitem(picture.resource.item(counter.color_choose_5.selectedvalue),1);
+	picture.location6.insertitem(picture.resource.item(counter.color_choose_6.selectedvalue),1);
+	picture.location7.insertitem(picture.resource.item(counter.color_choose_7.selectedvalue),1);
+	picture.location8.insertitem(picture.resource.item(counter.color_choose_8.selectedvalue),1);
+	picture.location9.insertitem(picture.resource.item(counter.color_choose_9.selectedvalue),1);
+	values.location1_color = counter.color_choose_1.selectedvalue;
+	values.location2_color = counter.color_choose_2.selectedvalue;
+	values.location3_color = counter.color_choose_3.selectedvalue;
+	values.location4_color = counter.color_choose_4.selectedvalue;
+	values.location5_color = counter.color_choose_5.selectedvalue;
+	values.location6_color = counter.color_choose_6.selectedvalue;
+	values.location7_color = counter.color_choose_7.selectedvalue;
+	values.location8_color = counter.color_choose_8.selectedvalue;
+	values.location9_color = counter.color_choose_9.selectedvalue;
+]
+/ stimulusframes = [1 = location1,location2,location3,location4,location5,location6,location7,location8,location9]
+/ timeout = values.timeout_of_image_present
+/ ontrialend = [
+	picture.location1.clearitems();
+	picture.location2.clearitems();
+	picture.location3.clearitems();
+	picture.location4.clearitems();
+	picture.location5.clearitems();
+	picture.location6.clearitems();
+	picture.location7.clearitems();
+	picture.location8.clearitems();
+	picture.location9.clearitems();
+]
+</trial>
+
+<trial mask_1>
+/ stimulusframes = [1 = mask_image]
+/ timeout = 50
+</trial>
+
+
+<trial fixation_2>
+/ stimulusframes = [1 = cross]
+/ timeout = 500
+/ branch = [
+	trial.PatchPresent
+]
+</trial>
+
+
+<counter question_choose>
+/ select = noreplace(1-6)
+</counter>
+
+
+<counter position_choose_present>
+/ select = noreplace(1-9)
+</counter>
+
+<counter position_choose_absent>
+/ select = noreplace(1-9)
+</counter>
+
+<counter color_of_absent>
+/ select = replace(1-7)
+</counter>
+
+
+
+<trial PatchPresent>
+/ ontrialbegin = [
+	if(counter.question_choose.selectedvalue == 1 || counter.question_choose.selectedvalue == 2 || counter.question_choose.selectedvalue == 3){
+		if(counter.position_choose_present.selectedvalue == 1){
+			picture.location1.insertitem(picture.resource.item(values.location1_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location1,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 36.7%;
+			values.y_position = 30%;
+		}else if(counter.position_choose_present.selectedvalue == 2){
+			picture.location2.insertitem(picture.resource.item(values.location2_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location2,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 50%;
+			values.y_position = 30%;
+		}else if(counter.position_choose_present.selectedvalue == 3){
+			picture.location3.insertitem(picture.resource.item(values.location3_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location3,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 63.3%;
+			values.y_position = 30%;
+		}else if(counter.position_choose_present.selectedvalue == 4){
+			picture.location4.insertitem(picture.resource.item(values.location4_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location4,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 36.7%;
+			values.y_position = 50%;
+		}else if(counter.position_choose_present.selectedvalue == 5){
+			picture.location5.insertitem(picture.resource.item(values.location5_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location5,1);
+			values.x_position = 50%;
+			values.y_position = 50%;
+		}else if(counter.position_choose_present.selectedvalue == 6){
+			picture.location6.insertitem(picture.resource.item(values.location6_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location6,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 63.3%;
+			values.y_position = 50%;
+		}else if(counter.position_choose_present.selectedvalue == 7){
+			picture.location7.insertitem(picture.resource.item(values.location7_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location7,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 36.7%;
+			values.y_position = 70%;
+		}else if(counter.position_choose_present.selectedvalue == 8){
+			picture.location8.insertitem(picture.resource.item(values.location8_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location8,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 50%;
+			values.y_position = 70%;
+		}else{
+			picture.location9.insertitem(picture.resource.item(values.location9_color),1);
+			trial.PatchPresent.insertstimulusframe(picture.location9,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 63.3%;
+			values.y_position = 70%;
+		}
+	}else{
+		if(counter.position_choose_absent.selectedvalue == 1){
+			picture.resource.removeitem(values.location1_color);
+			picture.location1.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location1,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 36.7%;
+			values.y_position = 30%;
+		}else if(counter.position_choose_absent.selectedvalue == 2){
+			picture.resource.removeitem(values.location2_color);
+			picture.location2.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location2,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 50%;
+			values.y_position = 30%;
+		}else if(counter.position_choose_absent.selectedvalue == 3){
+			picture.resource.removeitem(values.location3_color);
+			picture.location3.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location3,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 63.3%;
+			values.y_position = 30%;
+		}else if(counter.position_choose_absent.selectedvalue == 4){
+			picture.resource.removeitem(values.location4_color);
+			picture.location4.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location4,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 36.7%;
+			values.y_position = 50%;
+		}else if(counter.position_choose_absent.selectedvalue == 5){
+			picture.resource.removeitem(values.location5_color);
+			picture.location5.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location5,1);
+			values.x_position = 50%;
+			values.y_position = 50%;
+		}else if(counter.position_choose_absent.selectedvalue == 6){
+			picture.resource.removeitem(values.location6_color);
+			picture.location6.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location6,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 63.3%;
+			values.y_position = 50%;
+		}else if(counter.position_choose_absent.selectedvalue == 7){
+			picture.resource.removeitem(values.location7_color);
+			picture.location7.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location7,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 36.7%;
+			values.y_position = 70%;
+		}else if(counter.position_choose_absent.selectedvalue == 8){
+			picture.resource.removeitem(values.location8_color);
+			picture.location8.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location8,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 50%;
+			values.y_position = 70%;
+		}else{
+			picture.resource.removeitem(values.location9_color);
+			picture.location9.insertitem(picture.resource.item(counter.color_of_absent.selectedvalue),1);
+			trial.PatchPresent.insertstimulusframe(picture.location9,1);
+			trial.PatchPresent.insertstimulusframe(text.cross,1);
+			values.x_position = 63.3%;
+			values.y_position = 70%;
+		}
+	}
+]
+/ stimulusframes = []
+/ timeout = values.timeout_of_patch_present
+/ ontrialend = [
+	picture.location1.clearitems();
+	picture.location2.clearitems();
+	picture.location3.clearitems();
+	picture.location4.clearitems();
+	picture.location5.clearitems();
+	picture.location6.clearitems();
+	picture.location7.clearitems();
+	picture.location8.clearitems();
+	picture.location9.clearitems();
+	trial.PatchPresent.clearstimulusframes();
+	values.choose_color = 0;
+	if(counter.question_choose.selectedvalue == 4 || counter.question_choose.selectedvalue == 5 || counter.question_choose.selectedvalue == 6){
+		if(counter.position_choose_absent.selectedvalue == 1){
+			picture.resource.insertitem(picture.resource_temp.item(values.location1_color),values.location1_color);
+		}else if(counter.position_choose_absent.selectedvalue == 2){
+			picture.resource.insertitem(picture.resource_temp.item(values.location2_color),values.location2_color);
+		}else if(counter.position_choose_absent.selectedvalue == 3){
+			picture.resource.insertitem(picture.resource_temp.item(values.location3_color),values.location3_color);
+		}else if(counter.position_choose_absent.selectedvalue == 4){
+			picture.resource.insertitem(picture.resource_temp.item(values.location4_color),values.location4_color);
+		}else if(counter.position_choose_absent.selectedvalue == 5){
+			picture.resource.insertitem(picture.resource_temp.item(values.location5_color),values.location5_color);
+		}else if(counter.position_choose_absent.selectedvalue == 6){
+			picture.resource.insertitem(picture.resource_temp.item(values.location6_color),values.location6_color);
+		}else if(counter.position_choose_absent.selectedvalue == 7){
+			picture.resource.insertitem(picture.resource_temp.item(values.location7_color),values.location7_color);
+		}else if(counter.position_choose_absent.selectedvalue == 8){
+			picture.resource.insertitem(picture.resource_temp.item(values.location8_color),values.location8_color);
+		}else{
+			picture.resource.insertitem(picture.resource_temp.item(values.location9_color),values.location9_color);
+		}
+	}
+]
+/ branch = [
+	trial.mask_2
+]
+</trial>
+
+<trial mask_2>
+/ stimulustimes = [0 = cross,mask_patch_1;60 = cross,mask_patch_2;120 = cross,mask_patch_3;180 = cross,mask_patch_4;240 = cross,mask_patch_5]
+/ timeout = 300
+/ branch = [
+	trial.peripheral_response
+]
+</trial>
+
+
+<trial peripheral_response>
+/ stimulusframes = [
+	1  = response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d, response_blank,
+lowC_instruction, highC_instruction,part_of_Image,Not_part_of_Image
+]
+/ validresponse = (response_blank, response1d, response2d, response3d, response4d, response5d, response6d, response7d, response8d)
+/ inputdevice = mouse
+/ isvalidresponse = [if (trial.peripheral_response.response == "response_blank") false; else
+expressions.validresponse_disks
+]
+/ recorddata = true
+</trial>
+
+
+
+<block test>
+/ trials = [1 = fixation_1; 2-6 = mask_1; 7-12 = fixation_2]
+</block>
+
+<expt test>
+/ blocks = [1-3 = test]
+</expt>

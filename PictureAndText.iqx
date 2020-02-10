@@ -1,0 +1,194 @@
+﻿<text cross>
+	/ items = ("+")
+	/ color = snow
+	/ txbgcolor = (127, 127, 127)
+	/ fontstyle = ("Arial",100pt)
+</text>
+
+
+
+
+
+
+
+<picture location1>
+/ size = (20%,20%)
+/ items = ()
+/ position = (36.7%,30%)
+</picture>
+
+<picture location2>
+/ size = (20%,20%)
+/ items = ()
+/ position = (50%,30%)
+</picture>
+
+<picture location3>
+/ size = (20%,20%)
+/ items = ()
+/ position = (63.3%,30%)
+</picture>
+
+<picture location4>
+/ size = (20%,20%)
+/ items = ()
+/ position = (36.7%,50%)
+</picture>
+
+<picture location5>
+/ size = (20%,20%)
+/ items = ()
+/ position = (50%,50%)
+</picture>
+
+<picture location6>
+/ size = (20%,20%)
+/ items = ()
+/ position = (63.3%,50%)
+</picture>
+
+<picture location7>
+/ size = (20%,20%)
+/ items = ()
+/ position = (36.7%,70%)
+</picture>
+
+<picture location8>
+/ size = (20%,20%)
+/ items = ()
+/ position = (50%,70%)
+</picture>
+
+<picture location9>
+/ size = (20%,20%)
+/ items = ()
+/ position = (63.3%,70%)
+</picture>
+
+<picture resource>
+/ size = (20%,20%)
+/ items = ("color1.png",
+"color2.png",
+"color3.png",
+"color4.png",
+"color5.png",
+"color6.png",
+"color7.png",
+"color8.png",
+)
+</picture>
+
+<picture resource_temp>
+/ size = (20%,20%)
+/ items = ("color1.png",
+"color2.png",
+"color3.png",
+"color4.png",
+"color5.png",
+"color6.png",
+"color7.png",
+"color8.png",
+)
+</picture>
+************************************
+<picture mask_image>
+/ size = (60%,60%)
+/ position = (50%,50%)
+/ items = ("1.png",
+"2.png",
+"3.png",
+"4.png",
+"5.png",
+"6.png",
+"7.png",
+"8.png",
+"9.png",
+"10.png"
+)
+/ select = noreplace
+</picture>
+
+<picture mask_patch_1>
+/ size = (20%,20%)
+/ position = (values.x_position,values.y_position)
+/ items = ("1.png",
+"2.png",
+"3.png",
+"4.png",
+"5.png",
+"6.png",
+"7.png",
+"8.png",
+"9.png",
+"10.png"
+)
+/ select = noreplace
+</picture>
+
+<picture mask_patch_2>
+/ size = (20%,20%)
+/ position = (values.x_position,values.y_position)
+/ items = ("1.png",
+"2.png",
+"3.png",
+"4.png",
+"5.png",
+"6.png",
+"7.png",
+"8.png",
+"9.png",
+"10.png"
+)
+/ select = noreplace
+</picture>
+<picture mask_patch_3>
+/ size = (20%,20%)
+/ position = (values.x_position,values.y_position)
+/ items = ("1.png",
+"2.png",
+"3.png",
+"4.png",
+"5.png",
+"6.png",
+"7.png",
+"8.png",
+"9.png",
+"10.png"
+)
+/ select = noreplace
+</picture>
+
+<picture mask_patch_4>
+/ size = (20%,20%)
+/ position = (values.x_position,values.y_position)
+/ items = ("1.png",
+"2.png",
+"3.png",
+"4.png",
+"5.png",
+"6.png",
+"7.png",
+"8.png",
+"9.png",
+"10.png"
+)
+/ select = noreplace
+</picture>
+
+<picture mask_patch_5>
+/ size = (20%,20%)
+/ position = (values.x_position,values.y_position)
+/ items = ("1.png",
+"2.png",
+"3.png",
+"4.png",
+"5.png",
+"6.png",
+"7.png",
+"8.png",
+"9.png",
+"10.png"
+)
+/ select = noreplace
+</picture>
+
